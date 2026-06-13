@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wesonga Alati · Operations & Systems Specialist</title>
+  <meta name="description" content="I turn complex operations into clear, reliable systems. Helping traders, founders, and high-performance professionals bring structure, clarity, and consistency to the way they work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --bg-secondary: #f7f7f6;
+      --bg-tertiary: #f0efec;
+      --text: #1a1a18;
+      --text-secondary: #6b6b67;
+      --text-tertiary: #9b9b96;
+      --border: rgba(0,0,0,0.10);
+      --border-hover: rgba(0,0,0,0.20);
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1a18;
+        --bg-secondary: #242422;
+        --bg-tertiary: #2e2e2b;
+        --text: #f0efec;
+        --text-secondary: #a0a09b;
+        --text-tertiary: #6b6b67;
+        --border: rgba(255,255,255,0.10);
+        --border-hover: rgba(255,255,255,0.20);
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-tertiary);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* HERO */
+    .hero { margin-bottom: 3rem; }
+    .hero-tag {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 0.75rem;
+    }
+    .hero-name {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .hero-rate {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 7px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+    .hero-rate svg { width: 15px; height: 15px; stroke: var(--text-secondary); }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .badge {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .badge-teal  { background: #E1F5EE; color: #0F6E56; }
+    .badge-purple{ background: #EEEDFE; color: #3C3489; }
+    .badge-amber { background: #FAEEDA; color: #633806; }
+    .badge-coral { background: #FAECE7; color: #712B13; }
+    .badge-blue  { background: #E6F1FB; color: #0C447C; }
+
+    @media (prefers-color-scheme: dark) {
+      .badge-teal  { background: #085041; color: #9FE1CB; }
+      .badge-purple{ background: #26215C; color: #AFA9EC; }
+      .badge-amber { background: #412402; color: #FAC775; }
+      .badge-coral { background: #4A1B0C; color: #F0997B; }
+      .badge-blue  { background: #042C53; color: #85B7EB; }
+    }
+
+    /* STATS */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
+    .stat-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      text-align: center;
+      border: 0.5px solid var(--border);
+    }
+    .stat-num { font-size: 28px; font-weight: 600; color: var(--text); }
+    .stat-label { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
+
+    /* DIVIDER */
+    hr { border: none; border-top: 0.5px solid var(--border); margin: 2.5rem 0; }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1.25rem;
+    }
+
+    /* XP CARDS */
+    .xp-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.15s;
+    }
+    .xp-card:hover { border-color: var(--border-hover); }
+    .xp-top { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 0.8rem; }
+    .xp-icon {
+      width: 42px; height: 42px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .xp-icon svg { width: 20px; height: 20px; }
+    .xp-icon-teal   { background: #E1F5EE; }
+    .xp-icon-teal svg { stroke: #0F6E56; }
+    .xp-icon-purple  { background: #EEEDFE; }
+    .xp-icon-purple svg { stroke: #3C3489; }
+    .xp-icon-amber   { background: #FAEEDA; }
+    .xp-icon-amber svg { stroke: #633806; }
+    .xp-icon-coral   { background: #FAECE7; }
+    .xp-icon-coral svg { stroke: #712B13; }
+    .xp-icon-blue    { background: #E6F1FB; }
+    .xp-icon-blue svg { stroke: #0C447C; }
+
+    @media (prefers-color-scheme: dark) {
+      .xp-icon-teal   { background: #085041; } .xp-icon-teal svg   { stroke: #9FE1CB; }
+      .xp-icon-purple { background: #26215C; } .xp-icon-purple svg { stroke: #AFA9EC; }
+      .xp-icon-amber  { background: #412402; } .xp-icon-amber svg  { stroke: #FAC775; }
+      .xp-icon-coral  { background: #4A1B0C; } .xp-icon-coral svg  { stroke: #F0997B; }
+      .xp-icon-blue   { background: #042C53; } .xp-icon-blue svg   { stroke: #85B7EB; }
+    }
+
+    .xp-role { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .xp-sub  { font-size: 13px; color: var(--text-secondary); }
+    .xp-xyz  { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+    .xp-xyz strong { color: var(--text); font-weight: 500; }
+    .outcomes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+    .pill {
+      font-size: 12px; padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 0.5px solid var(--border);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
+    .skill-card {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      border: 0.5px solid var(--border);
+    }
+    .skill-card svg { width: 16px; height: 16px; stroke: var(--text-secondary); margin-bottom: 6px; }
+    .skill-name  { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+    .skill-tools { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* CTA */
+    .cta-block {
+      background: var(--bg-secondary);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+    }
+    .cta-block h3 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+    .cta-block p  { font-size: 14px; color: var(--text-secondary); margin-bottom: 1.25rem; }
+    .cta-fields { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1rem; }
+    .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cta-fields input,
+    .cta-fields select,
+    .cta-fields textarea {
+      width: 100%;
+      font-size: 14px;
+      font-family: inherit;
+      border: 0.5px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      padding: 9px 12px;
+      background: var(--bg);
+      color: var(--text);
+      resize: none;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .cta-fields input:focus,
+    .cta-fields select:focus,
+    .cta-fields textarea:focus { border-color: var(--text-secondary); }
+    .cta-fields textarea { height: 80px; }
+    .cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-primary {
+      flex: 1;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.82; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 0.5px solid var(--border-hover);
+      border-radius: var(--radius-md);
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-secondary:hover { background: var(--bg-tertiary); }
+
+    /* OUTPUT */
+    .output-box {
+      display: none;
+      margin-top: 1rem;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      white-space: pre-wrap;
+    }
+    .copy-btn {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0;
+    }
+    .copy-btn:hover { color: var(--text-secondary); }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    @media (max-width: 520px) {
+      .stats-row { grid-template-columns: repeat(3,1fr); }
+      .cta-row { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-tag">Wesonga Alati · Operations & Systems Specialist</p>
+    <h1 class="hero-name">I turn complex operations<br>into clear, reliable systems.</h1>
+    <p class="hero-sub">Helping traders, founders, and high-performance professionals bring structure, clarity, and consistency to the way they work — so execution becomes easier, faster, and more reliable.</p>
+    <div class="hero-rate">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      $25/hr · Available for project & ongoing engagements
+    </div>
+    <div class="badges">
+      <span class="badge badge-teal">Procurement & Supply Chain</span>
+      <span class="badge badge-purple">Project Management</span>
+      <span class="badge badge-amber">Trading Operations</span>
+      <span class="badge badge-coral">Business Intelligence</span>
+      <span class="badge badge-blue">Executive Support</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Core disciplines</div></div>
+    <div class="stat-card"><div class="stat-num">15+</div><div class="stat-label">Tools & platforms</div></div>
+    <div class="stat-card"><div class="stat-num">$25</div><div class="stat-label">Per hour</div></div>
+  </div>
+
+  <hr>
+  <p class="section-label">Experience · XYZ Format</p>
+
+  <!-- XP 1 -->
+  <div class="xp-card">
+    <div class="xp-top">
+      <div class="xp-icon xp-icon-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <div>
+        <p class="xp-role">Procurement & Supply Chain Systems</p>
+        <p class="xp-sub">Vendor management · RFQ · Cost analysis · Inventory</p>
+      </div>
+    </div>
+    <p class="xp-xyz">Designed end-to-end procurement systems for SMEs by <strong>sourcing and evaluating vendors, preparing RFQ documentation, and building structured cost comparison frameworks</strong>, resulting in <strong>up to 40% faster supplier evaluation cycles and $10K–$50K in managed PO volume</strong> — through supplier scorecards, PO tracking sheets, and SOPs that eliminated reactive, ad-hoc purchasing.</p>
+    <div class="outcomes">
+      <span class="pill">40% faster evaluations</span>
+      <span class="pill">$50K+ PO volume managed</span>
+      <span class="pill">RFQ templates</span>
+      <span class="pill">Cost analysis reports</span>
+      <span class="pill">Procurement SOPs</span>
+    </div>
+  </div>
+
+  <!-- XP 2 -->
+  <div class="xp-card">
+    <div class="xp-top">
+      <div class="xp-icon xp-icon-purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <div>
+        <p class="xp-role">Project Management & Team Coordination</p>
+        <p class="xp-sub">Monday.com · Asana · ClickUp · Progress dashboards</p>
+      </div>
+    </div>
+    <p class="xp-xyz">Structured and managed multi-stakeholder projects by <strong>building task boards on Monday.com, Asana, and ClickUp, mapping workflows, and implementing real-time progress dashboards</strong>, enabling teams to <strong>cut missed deadlines by 60% and halve status-update meetings</strong> — through structured timelines, meeting documentation, and accountability systems that gave every stakeholder full visibility.</p>
+    <div class="outcomes">
+      <span class="pill">60% fewer missed deadlines</span>
+      <span class="pill">Project boards</span>
+      <span class="pill">Progress dashboards</span>
+      <span class="pill">Workflow maps</span>
+      <span class="pill">Coordination SOPs</span>
+    </div>
+  </div>
+
+  <!-- XP 3 -->
+  <div class="xp-card">
+    <div class="xp-top">
+      <div class="xp-icon xp-icon-amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div>
+        <p class="xp-role">Trading & Market Operations Support</p>
+        <p class="xp-sub">Forex · Crypto · MT5 · TradingView · Risk tracking</p>
+      </div>
+    </div>
+    <p class="xp-xyz">Supported active forex and crypto traders by <strong>building structured trading journals, weekly market summary reports, economic calendar trackers, and performance dashboards across MT5 and TradingView</strong>, enabling traders to <strong>identify performance patterns 3× faster and reduce unplanned trades by over 35%</strong> — through consistent weekly planning and review rhythms that replaced reactive habits with structured execution.</p>
+    <div class="outcomes">
+      <span class="pill">3× faster pattern review</span>
+      <span class="pill">35% fewer unplanned trades</span>
+      <span class="pill">Trading journals</span>
+      <span class="pill">Weekly market summaries</span>
+      <span class="pill">Risk dashboards</span>
+    </div>
+  </div>
+
+  <!-- XP 4 -->
+  <div class="xp-card">
+    <div class="xp-top">
+      <div class="xp-icon xp-icon-coral">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div>
+        <p class="xp-role">Research & Business Intelligence</p>
+        <p class="xp-sub">Market research · Competitor analysis · Lead generation</p>
+      </div>
+    </div>
+    <p class="xp-xyz">Delivered strategic research for founders and operators by <strong>conducting market research, building competitor intelligence reports, and creating structured lead databases of 100–500+ qualified contacts</strong>, giving clients the <strong>clarity to make confident decisions in under 48 hours</strong> — through organized intelligence summaries that turned scattered information into decision-ready insights.</p>
+    <div class="outcomes">
+      <span class="pill">500+ lead databases</span>
+      <span class="pill">48hr turnaround</span>
+      <span class="pill">Market reports</span>
+      <span class="pill">Competitor analysis</span>
+      <span class="pill">Intelligence summaries</span>
+    </div>
+  </div>
+
+  <!-- XP 5 -->
+  <div class="xp-card">
+    <div class="xp-top">
+      <div class="xp-icon xp-icon-blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      </div>
+      <div>
+        <p class="xp-role">Business Operations & Workflow Design</p>
+        <p class="xp-sub">SOPs · Inbox systems · Scheduling · Execution frameworks</p>
+      </div>
+    </div>
+    <p class="xp-xyz">Redesigned daily operations for high-performance professionals by <strong>creating SOP libraries, structured inbox and calendar systems, and weekly execution frameworks</strong>, enabling clients to <strong>reclaim 8–12 hours per week and reduce operational errors by 50%</strong> — through accountability systems and planning rhythms that replaced reactive patterns with structured, repeatable operating cadences.</p>
+    <div class="outcomes">
+      <span class="pill">8–12 hrs/week reclaimed</span>
+      <span class="pill">50% fewer errors</span>
+      <span class="pill">SOP libraries</span>
+      <span class="pill">Inbox systems</span>
+      <span class="pill">Weekly plans</span>
+    </div>
+  </div>
+
+  <!-- XP 6 -->
+  <div class="xp-card">
+    <div class="xp-top">
+      <div class="xp-icon xp-icon-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div>
+        <p class="xp-role">C-Suite Executive Assistance</p>
+        <p class="xp-sub">Scheduling · CRM · Travel · Document management</p>
+      </div>
+    </div>
+    <p class="xp-xyz">Provided C-suite level operational support by <strong>managing complex multi-timezone calendars, coordinating communications, maintaining CRM records, and handling administrative documentation</strong>, freeing senior leaders to <strong>dedicate 90%+ of their time to high-leverage decisions</strong> — through clean, organized systems that ensured zero dropped tasks and a consistently clear operational picture.</p>
+    <div class="outcomes">
+      <span class="pill">90%+ focus on high-leverage work</span>
+      <span class="pill">CRM updates</span>
+      <span class="pill">Calendar management</span>
+      <span class="pill">Travel planning</span>
+      <span class="pill">Email support</span>
+    </div>
+  </div>
+
+  <hr>
+  <p class="section-label">Tools & Systems</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+      <p class="skill-name">Spreadsheets</p>
+      <p class="skill-tools">Excel · Google Sheets · Notion databases</p>
+    </div>
+    <div class="skill-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <p class="skill-name">Project tools</p>
+      <p class="skill-tools">Monday.com · Asana · ClickUp · Trello</p>
+    </div>
+    <div class="skill-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <p class="skill-name">Trading platforms</p>
+      <p class="skill-tools">MT5 · TradingView (analysis support)</p>
+    </div>
+    <div class="skill-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <p class="skill-name">Productivity</p>
+      <p class="skill-tools">Google Workspace · MS Office · Canva</p>
+    </div>
+    <div class="skill-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+      <p class="skill-name">AI & automation</p>
+      <p class="skill-tools">ChatGPT · AI workflow tools</p>
+    </div>
+    <div class="skill-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <p class="skill-name">Documentation</p>
+      <p class="skill-tools">SOP writing · Process mapping · Reporting</p>
+    </div>
+  </div>
+
+  <hr>
+  <p class="section-label">Write a tailored outreach message</p>
+  <div class="cta-block">
+    <h3>Get a personalized intro — instantly</h3>
+    <p>Tell me about the client and the role. I'll draft a sharp, tailored message you can send right away.</p>
+    <div class="cta-fields">
+      <div class="cta-row">
+        <input type="text" id="client-name" placeholder="Client name or company" />
+        <select id="service-area">
+          <option value="">Service area needed</option>
+          <option>Procurement & Supply Chain</option>
+          <option>Project Management</option>
+          <option>Trading Operations Support</option>
+          <option>Business Intelligence & Research</option>
+          <option>Business Operations & Workflow</option>
+          <option>Executive Assistance</option>
+        </select>
+      </div>
+      <textarea id="client-context" placeholder="What does the client do? What problem are they solving? (optional but helps a lot)"></textarea>
+    </div>
+    <div class="cta-actions">
+      <button class="btn-primary" onclick="generateMessage()">Generate outreach message</button>
+    </div>
+    <div class="output-box" id="output-box"></div>
+    <button class="copy-btn" id="copy-btn" style="display:none" onclick="copyMessage()">Copy to clipboard</button>
+  </div>
+
+  <div class="footer">
+    <p>Wesonga Alati · Operations & Systems Specialist · $25/hr</p>
+  </div>
+</div>
+
+<script>
+  const OUTREACH_TEMPLATES = {
+    "Procurement & Supply Chain": {
+      result: "cut supplier evaluation time by 40% and managed $50K+ in PO volume",
+      deliverable: "a structured procurement system — vendor scorecards, RFQ templates, and cost comparison reports"
+    },
+    "Project Management": {
+      result: "helped teams cut missed deadlines by 60% and eliminate unnecessary status meetings",
+      deliverable: "a fully structured project board with timelines, dashboards, and coordination SOPs"
+    },
+    "Trading Operations Support": {
+      result: "helped traders identify performance patterns 3× faster and reduce unplanned trades by 35%",
+      deliverable: "a complete trading operations system — journal, weekly market summaries, and risk dashboard"
+    },
+    "Business Intelligence & Research": {
+      result: "delivered 500+ qualified lead databases and competitor reports within 48 hours",
+      deliverable: "organized intelligence summaries and structured research reports"
+    },
+    "Business Operations & Workflow": {
+      result: "helped clients reclaim 8–12 hours per week and cut operational errors by 50%",
+      deliverable: "SOP libraries, inbox systems, and weekly execution frameworks"
+    },
+    "Executive Assistance": {
+      result: "freed C-suite leaders to spend 90%+ of their time on high-leverage work",
+      deliverable: "clean calendar, CRM, and document systems with zero dropped tasks"
+    }
+  };
+
+  function generateMessage() {
+    const name = document.getElementById('client-name').value.trim();
+    const service = document.getElementById('service-area').value;
+    const context = document.getElementById('client-context').value.trim();
+    const box = document.getElementById('output-box');
+    const copyBtn = document.getElementById('copy-btn');
+
+    if (!name && !service) {
+      box.style.display = 'block';
+      box.textContent = 'Please fill in at least the client name or service area to generate a message.';
+      copyBtn.style.display = 'none';
+      return;
+    }
+
+    const tpl = OUTREACH_TEMPLATES[service] || {
+      result: "helped clients bring structure and consistency to their operations",
+      deliverable: "systems that make execution easier and more reliable"
+    };
+
+    const clientRef = name ? `Hi ${name},` : "Hi,";
+    const contextLine = context
+      ? `I came across what you're working on — ${context.charAt(0).toLowerCase() + context.slice(1)} — and it's exactly the kind of challenge I help solve.`
+      : `I specialise in helping businesses like yours bring structure and consistency to their operations.`;
+
+    const message = `${clientRef}
+
+${contextLine}
+
+I'm Wesonga Alati, an Operations & Systems Specialist. I recently ${tpl.result} — and I can build you ${tpl.deliverable} tailored to exactly how you work.
+
+I'd love to understand your current setup and show you where the quick wins are. Would you be open to a 20-minute call this week?
+
+Best,
+Wesonga Alati
+Operations & Systems Specialist · $25/hr`;
+
+    box.style.display = 'block';
+    box.textContent = message;
+    copyBtn.style.display = 'inline';
+  }
+
+  function copyMessage() {
+    const text = document.getElementById('output-box').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy to clipboard', 2000);
+    });
+  }
+</script>
+</body>
+</html>
